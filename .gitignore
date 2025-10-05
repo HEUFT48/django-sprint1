@@ -143,12 +143,19 @@ dmypy.json
 # Local History for Visual Studio Code
 .history/
 
-.mypy_cache
+# Статические файлы Django
+static/
+staticfiles/
+static-dev/
+html/
 
-# папки со статикой и медиа
+# Медиа файлы
 media/
+uploads/
 
 # Testing
 build_tests/
 yap_testing
-html/img/img/
+
+# Удалить эту строку - она содержит ошибку и дублируется
+# html/img/img/

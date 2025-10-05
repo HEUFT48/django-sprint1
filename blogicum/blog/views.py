@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 
 posts = [
@@ -43,6 +44,8 @@ posts = [
     },
 ]
 
+POSTS_BY_ID = {post['id']: post for post in posts}
+
 
 def index(request):
     context = {'posts': posts}
@@ -50,7 +53,10 @@ def index(request):
 
 
 def post_detail(request, id):
-    context = {'post': posts[id]}
+    if id not in POSTS_BY_ID:
+        raise Http404("Пост с таким id не найден")
+
+    context = {'post': POSTS_BY_ID[id]}
     return render(request, 'blog/detail.html', context)
 
 
