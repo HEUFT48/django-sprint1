@@ -54,7 +54,7 @@ def index(request):
 
 def post_detail(request, id):
     if id not in POSTS_BY_ID:
-        raise Http404("Пост с таким id не найден")
+        raise Http404('Пост с таким id не найден')
 
     context = {'post': POSTS_BY_ID[id]}
     return render(request, 'blog/detail.html', context)
